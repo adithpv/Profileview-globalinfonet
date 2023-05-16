@@ -38,14 +38,30 @@ const AddUser = () => {
 
     if (form.name) {
       setIsSubmitting(true);
+
+      const promise = axios.post("http://localhost:3001/users/adduser", form);
+
+      const toastId: any = toast.promise(promise, {
+        pending: "Adding user...",
+        success: "User added successfully!",
+        error: "Error adding user!",
+      });
+
       try {
         const addUser = await axios.post(
           "http://localhost:3001/users/adduser",
           form
         );
         context?.userData.push(form);
-        navigate(`/user/${addUser.data.postData.data.Id}`);
-        console.log(addUser.data.postData.data.Id);
+        toast.update(toastId, {
+          render: "User added successfully!",
+          type: "success",
+          autoClose: 8000,
+        });
+        setIsSubmitting(true);
+        setTimeout(() => {
+          navigate(`/user/${addUser.data.postData.data.Id}`);
+        }, 500);
       } catch (error: AxiosError | any) {
         console.log(error.message);
       } finally {
@@ -62,14 +78,10 @@ const AddUser = () => {
     setForm((prevForm) => ({ ...prevForm, [name]: value }));
   };
 
-  const test = () => {
-    toast("hello toastify");
-  };
-
   return (
     <div className="container">
       <ToastContainer />
-      <button onClick={test}>click</button>
+
       <div className={style["addUser__wrapper"]}>
         <div className={style["addUser__form--left"]}>
           <div className={style["addUser__title"]}>
