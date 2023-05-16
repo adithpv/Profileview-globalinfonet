@@ -79,7 +79,11 @@ const UserDetails = () => {
       <section className={style["userDetails__section-1"]}>
         <div className={style["section-1__profile"]}>
           <img
-            src={profImg}
+            src={
+              userDetails?.imgUrl
+                ? `https://2mxff3.sharepoint.com${userDetails?.imgUrl}`
+                : profImg
+            }
             alt=""
             width="80px"
             height="80px"

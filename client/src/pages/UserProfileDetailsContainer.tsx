@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link, useParams } from "react-router-dom";
 
-import profImg from "../assets/potrait2.jpg";
+import profImg from "../assets/defaultImg.jpg";
 import UserDetails from "./UserDetails";
 import Documents from "./Documents";
 import style from "../styles/profileContainer.module.css";
@@ -39,7 +39,11 @@ const UserProfileDetailsContainer = () => {
               <button className={style["nav__back-btn"]}>Back</button>
             </Link>
             <img
-              src={profImg}
+              src={
+                profile?.imgUrl
+                  ? `https://2mxff3.sharepoint.com${profile?.imgUrl}`
+                  : profImg
+              }
               alt="profile picture of user"
               width="50px"
               height="50px"

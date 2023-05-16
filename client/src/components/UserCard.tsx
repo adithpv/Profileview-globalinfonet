@@ -6,22 +6,26 @@ import { AiOutlinePlus } from "react-icons/ai";
 
 import { Profile } from "../types/types";
 import { ProfileContext } from "../context/userProfileContext";
-import imageUrl from "../assets/potrait2.jpg";
+import profImg from "../assets/potrait2.jpg";
 import style from "../styles/userCard.module.css";
 
 const UserCard = () => {
   const { search = [], userData = [] } = useContext(ProfileContext) || {};
   let data: any = search.length !== 0 ? search : userData;
-  const profImg = {
-    backgroundImage: `url(${imageUrl})`,
-  };
 
   const Cards = data?.map((user: Profile) => {
     return (
       <React.Fragment key={user.Id}>
         <Link to={`/user/${user.Id}`}>
           <article className={style["article__card"]}>
-            <div className={style["article__card--wrapper"]} style={profImg}>
+            <div
+              className={style["article__card--wrapper"]}
+              style={{
+                backgroundImage: user.imgUrl
+                  ? `url(https://2mxff3.sharepoint.com${user.imgUrl})`
+                  : `url(${profImg})`,
+              }}
+            >
               <div className={style["article__card--nav"]}>
                 <AiOutlinePlus className={style["article__card-addBtn"]} />
                 <p>{user.name}</p>
