@@ -5,6 +5,8 @@ import axios, { AxiosError } from "axios";
 import { SlUserFollow } from "react-icons/sl";
 import { ProfileContext } from "../context/userProfileContext";
 import { HashLoader } from "react-spinners";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import style from "../styles/addUser.module.css";
 
@@ -57,13 +59,17 @@ const AddUser = () => {
   ): void => {
     const { name } = e.target;
     const value = (e.target as HTMLInputElement | HTMLSelectElement).value;
-    // console.log(value);
     setForm((prevForm) => ({ ...prevForm, [name]: value }));
-    console.log(form);
+  };
+
+  const test = () => {
+    toast("hello toastify");
   };
 
   return (
     <div className="container">
+      <ToastContainer />
+      <button onClick={test}>click</button>
       <div className={style["addUser__wrapper"]}>
         <div className={style["addUser__form--left"]}>
           <div className={style["addUser__title"]}>
@@ -71,7 +77,6 @@ const AddUser = () => {
               <SlUserFollow />
               <h3>Add User Details</h3>
             </div>
-
             <p>Add details for user to profileview</p>
           </div>
         </div>
