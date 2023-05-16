@@ -3,7 +3,6 @@ import React, { useState, ChangeEvent, useContext } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios, { AxiosError } from "axios";
 import { SlUserFollow } from "react-icons/sl";
-import { BsPersonPlusFill } from "react-icons/bs";
 import { ProfileContext } from "../context/userProfileContext";
 import { HashLoader } from "react-spinners";
 
@@ -182,7 +181,7 @@ const AddUser = () => {
               htmlFor="phoneNum"
               className={style["addUser__form--phoneNum"]}
             >
-              Phone Number
+              Phone
               <input
                 type="text"
                 id="phoneNum"
@@ -240,8 +239,14 @@ const AddUser = () => {
               />
             </label>
             <div className={style["addUser__btn"]}>
-              <button className={style["addUser__submit"]}>Submit</button>
-              <button className={style["addUser__cancel"]}>Cancel</button>
+              {isSubmitting ? (
+                <HashLoader color="#1d90f5" size={50} />
+              ) : (
+                <>
+                  <button className={style["addUser__submit"]}>Submit</button>
+                  <button className={style["addUser__cancel"]}>Cancel</button>
+                </>
+              )}
             </div>
           </div>
         </form>

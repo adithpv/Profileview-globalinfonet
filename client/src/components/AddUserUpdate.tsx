@@ -124,7 +124,7 @@ const AddUserUpdate: React.FC<AddUserUpdateProps> = ({ onCancelClick }) => {
                   width="90px"
                   height="80px"
                 />
-                <label htmlFor="imgUpload">
+                <label htmlFor="imgUpload" className="profileImg__label">
                   <div className={style["profileImage__add"]}>
                     <BiImageAdd />
                     <input
@@ -134,7 +134,11 @@ const AddUserUpdate: React.FC<AddUserUpdateProps> = ({ onCancelClick }) => {
                     />
                     <p className={style.tooltip}>Click to add profile image</p>
                   </div>
-                  <button type="submit" onClick={uploadImage}>
+                  <button
+                    type="submit"
+                    onClick={uploadImage}
+                    className={style["profileImg__button"]}
+                  >
                     Submit
                   </button>
                 </label>

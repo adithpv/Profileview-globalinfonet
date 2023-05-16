@@ -33,6 +33,25 @@
   border-radius: 10px;
 }
 
+.profileImg__label {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.profileImg__button {
+  border: none;
+  border-radius: 10px;
+  margin-left: 2rem;
+  padding: 0.5em;
+  color: #fff;
+  background-color: var(--BTN-7);
+}
+
+.profileImg__button:is(:focus, :hover) {
+  background-color: var(--BTN-HOVER-BLUE);
+}
+
 .profileImage__add {
   cursor: pointer;
 }
@@ -46,7 +65,7 @@
 }
 
 .addUpdate__profile svg {
-  color: red;
+  color: #000;
   font-size: 2rem;
 }
 

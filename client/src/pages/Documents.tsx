@@ -1,10 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import {
-  AiOutlineFolderOpen,
-  AiOutlineFileAdd,
-  AiOutlineUpload,
-} from "react-icons/ai";
+import { AiOutlineFolderOpen, AiOutlineUpload } from "react-icons/ai";
 import { RxCross2 } from "react-icons/rx";
 import { HiDownload, HiOutlineTrash } from "react-icons/hi";
 import axios from "axios";
@@ -21,7 +17,6 @@ const Documents = () => {
 
   const handleDocument = (e: any) => {
     setDocument(e.target.files[0]);
-    console.log(document);
   };
 
   const documentUpload = async (e: any) => {
@@ -31,7 +26,6 @@ const Documents = () => {
         `http://localhost:3001/doc/${id}`,
         formdata
       );
-      console.log(response);
     } catch (err) {
       console.log(err);
     }
@@ -42,7 +36,6 @@ const Documents = () => {
       try {
         let response = await axios.get(`http://localhost:3001/doc/${id}`);
         setFetchDocument(response.data);
-        console.log(fetchDocument);
       } catch (error) {
         console.log(error);
       }
@@ -71,21 +64,6 @@ const Documents = () => {
               <button onClick={documentUpload}>Submit</button>
             </label>
           </div>
-
-          {/* <div className={style["fileUpload__uploadarea"]}>
-            <AiOutlineUpload />
-            <p>Drag and Drop or Choose file to upload</p>
-          </div> */}
-
-          {/* <div className={style["fileUpload__progressarea"]}>
-            <div className={style["fileUpload__filename"]}>
-              <AiOutlineFolderOpen />
-              <div>
-                <h3>File_name.pdf</h3>
-              </div>
-            </div>
-            <RxCross2 />
-          </div> */}
         </div>
       </section>
 

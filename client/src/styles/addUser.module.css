@@ -90,6 +90,7 @@
   border-radius: 8px;
   outline: none;
   background-color: #f8f9fa;
+  width: 100%;
 }
 
 .addUser__form input[type="text"]:focus,
@@ -98,6 +99,7 @@
 .addUser__form input[type="email"]:focus,
 .addUser__form input[type="radio"]:focus {
   border: 1px solid #007fff;
+  width: 100%;
 }
 
 .addUser__form--radio label {
