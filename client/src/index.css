@@ -1,0 +1,133 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400&family=Poppins:wght@200&display=swap");
+
+:root {
+  /* COLORS */
+  --PRIMARY-COLOR: #1d90f5;
+
+  --BG-DEFAULT: #fafafa;
+  --BG-WHITE-1: #f9fbfb;
+  --BG-GREY-1: #adb5bd;
+  --BG-GREY-2: #868e96;
+  --BG-GREEN-LIGHT: #d3f9d8;
+
+  --TYPOGRAPHY-DEFAULT: #000;
+  --TYPOGRAPGHY-WHITE: #fff;
+  --TYPOGRAPGHY-VAR-1: #9385bd;
+  --TYPOGRAPGHY-VAR-2: #fa6400;
+  --TYPOGRAPGHY-VAR-3: #868e96;
+
+  --BTN-1: #33b270;
+  --BTN-2: #f87784;
+  --BTN-3: #1d90f5;
+  --BTN-4: #037272;
+  --BTN-5: #004225;
+  --BTN-6: #1a1110;
+  --BTN-7: #007fff;
+  --BTN-8: #e03131;
+  --BTN-9: #1971c2;
+  --BTN-CARD: #007fff;
+  --BTN-SAVE: #1d4ed8;
+  --BTN-DEFAULT: #d4d4d4;
+  --BTN-DELETE-1: #fa5252;
+
+  --BTN-HOVER-BLUE: #1e3a8a;
+  --BTN-HOVER-RED: #9f1239;
+  --BTN-HOVER-CANCEL: #52525b;
+
+  --FORM-INPUT-BORDER-COLOR: #e5e4e2;
+  --FORM-INPUT-BG: #f8f9fa;
+
+  --OUTLINES-DIM-GREY: #bebfc5;
+  --OUTLINES-DIM-GREY-2: #c0c0c0;
+  --OUTLINES-DIM-GREY-3: #f1f3f5;
+  --OUTLINE-ERROR: #c51e3a;
+
+  --BOX-SHADOW-MD: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+    0 4px 6px -4px rgb(0 0 0 / 0.1);
+
+  /* FONT-SIZE */
+  --FS-50: 0.5rem;
+  --FS-100: 1rem;
+  --FS-150: 1.5rem;
+  --FS-200: 2rem;
+  --FS-250: 2.5rem;
+  --FS-300: 3rem;
+  --FS-350: 3.5rem;
+  --FS-400: 4rem;
+  --FS-450: 4.5rem;
+  --FS-500: 5rem;
+  --FS-550: 5.5rem;
+  --FS-600: 6rem;
+  --FS-650: 6.5rem;
+
+  --FONT-FAMILY-MAIN: "Nunito", sans-serif;
+  --FONT-FAMILY-ALT: "Poppins", sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+body {
+  font-family: var(--FONT-FAMILY-MAIN);
+  line-height: 1.5;
+}
+
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+.container {
+  --max-width: 1200px;
+  --padding: 1rem;
+  width: min(var(--max-width), 100% - (var(--padding) * 2));
+  margin-inline: auto;
+}

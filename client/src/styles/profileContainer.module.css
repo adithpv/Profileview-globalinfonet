@@ -1,0 +1,66 @@
+.profile__container {
+  margin-inline: auto;
+}
+
+.profile__container--nav {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  border-radius: 10px;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  padding: 0.8em;
+}
+
+.nav__profile-details {
+  display: flex;
+  align-items: center;
+}
+
+.nav__profile-buttons button,
+.nav__back-btn {
+  border: none;
+  border-radius: 10px;
+  padding: 0.5em;
+  color: #fff;
+}
+
+.nav__profile-details img {
+  border-radius: 50vw;
+  margin-left: 2rem;
+}
+
+.nav__profile-details h3 {
+  margin-left: 0.6rem;
+}
+
+.nav__profile-buttons {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.nav__back-btn {
+  background-color: #71717a;
+}
+
+.nav__profile-btn,
+.nav__profile-doc {
+  background-color: #969696;
+  color: #007bff;
+  cursor: pointer;
+}
+
+.nav__profile-btn:is(:hover, :focus),
+.nav__profile-doc:is(:hover, :focus) {
+  background-color: #3b82f6;
+}
+
+.nav__profile-btn.active,
+.nav__profile-doc.active {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.profileView__section {
+  margin-inline: auto;
+  margin: 1rem 0;
+}

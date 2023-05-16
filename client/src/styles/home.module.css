@@ -1,0 +1,62 @@
+.hero {
+  display: flex;
+  margin-top: 2rem;
+}
+
+.hero__left {
+  flex-grow: 3;
+}
+
+.hero__left h1 {
+  font-size: 4rem;
+  font-weight: 200;
+}
+
+.hero__left-input {
+  padding: 0.8em;
+  width: 16rem;
+}
+
+.hero__left-input[type="text"] {
+  border: 2px solid #e5e4e2;
+  border-radius: 8px;
+  outline: none;
+  background-color: #f8f9fa;
+}
+
+.hero__left-input:is(:hover, :focus) {
+  border-color: #007fff;
+}
+
+.hero__left-label {
+  border: none;
+}
+
+.hero__right {
+  flex-grow: 1;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  background-color: #26a0f8;
+  border-radius: 10px;
+  color: #fff;
+  font-family: var(--FONT-FAMILY-2);
+}
+
+.hero__right-card {
+  display: flex;
+  flex-direction: column;
+  font-size: 3rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero__right-card--container {
+  display: flex;
+  align-items: center;
+}
+
+.hero__userCard--container {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin: 1.5rem 0;
+}

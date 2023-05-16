@@ -1,0 +1,5 @@
+.horizontal__rule {
+  height: 1px;
+  background-color: var(--BG-GREY-1);
+  border: none;
+}

@@ -1,0 +1,177 @@
+.addUpdate__wrapper {
+  padding: 0.6em;
+  margin-top: 1rem;
+}
+
+.addUpdate__form {
+  display: grid;
+  justify-content: space-between;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.addUpdate__personal {
+  grid-column: 1/2;
+  border-radius: 10px;
+  padding: 0.5em;
+  max-height: 400px;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+.addUpdate__employment {
+  grid-column: 2/-1;
+  border-radius: 10px;
+  padding: 0.5em;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+.addUpdate__profile {
+  display: flex;
+  position: relative;
+}
+
+.addUpdate__profile img {
+  border-radius: 10px;
+}
+
+.profileImage__add {
+  cursor: pointer;
+}
+
+.profileImage__add label {
+  width: 100%;
+}
+
+.profileImage__add input {
+  display: none;
+}
+
+.addUpdate__profile svg {
+  color: red;
+  font-size: 2rem;
+}
+
+.tooltip {
+  position: absolute;
+  left: 8rem;
+  top: 1rem;
+}
+
+.addUpdate__name,
+.addUpdate__dob,
+.addUpdate__city,
+.addUpdate__position,
+.addUpdate__role,
+.addUpdate__phoneNum,
+.addUpdate__email,
+.addUpdate__startdate {
+  padding: 0.5em;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.addUpdate__name input[type="text"],
+.addUpdate__dob input[type="date"],
+.addUpdate__city input[type="text"],
+.addUpdate__position input[type="text"],
+.addUpdate__role input[type="text"],
+.addUpdate__phoneNum input[type="number"],
+.addUpdate__email input[type="email"],
+.addUpdate__startdate input[type="date"],
+.addUserUpdate__radio input[type="radio"],
+.addUpdate__description input[type="text"] {
+  border: 1px solid #e5e4e2;
+  border-radius: 8px;
+  outline: none;
+  background-color: #f8f9fa;
+  padding: 0.4em;
+  width: 100%;
+}
+
+.addUserUpdate__radio {
+  display: flex;
+  padding: 0.5em;
+  align-items: center;
+  gap: 1rem;
+}
+
+.addUserUpdate__radio p {
+  margin-right: 1rem;
+}
+
+.addUpdate__male,
+.addUpdate__female,
+.addUpdate__other {
+  display: flex;
+  align-items: center;
+}
+
+.addUpdate__city select {
+  --select-border: #777;
+  --select-arrow: var(--select-border);
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  padding: 0.5em;
+  border-radius: 10px;
+  outline: none;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: inherit;
+  line-height: inherit;
+  background-color: #e9ecef69;
+}
+
+.addUpdate__experience {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.4rem;
+}
+
+.addUpdate__experience p {
+  width: 50px;
+}
+
+.addUpdate__experience input[type="range"] {
+  width: 100%;
+}
+
+.addUpdate__description {
+  display: flex;
+  gap: 1rem;
+  padding: 1em;
+  align-items: center;
+}
+
+.addUpdate__buttons {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.addUpdate__buttons button {
+  width: 130px;
+  border-radius: 10px;
+  border: none;
+  padding: 0.5em;
+  color: var(--TYPOGRAPGHY-WHITE);
+}
+
+.addUpdate__cancel {
+  background-color: #d4d4d4;
+}
+
+.addUpdate__save {
+  background-color: var(--BTN-SAVE);
+}
+
+.addUpdate__cancel:is(:hover, :focus) {
+  background-color: var(--BTN-HOVER-CANCEL);
+}
+
+.addUpdate__save:is(:focus, :hover) {
+  background-color: var(--BTN-HOVER-BLUE);
+}

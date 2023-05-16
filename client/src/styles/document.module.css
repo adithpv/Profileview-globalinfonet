@@ -1,0 +1,125 @@
+.document__wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem auto;
+  gap: 0.8rem;
+}
+
+.fileUpload {
+  width: 400px;
+  min-height: 170px;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  padding: 0.6em;
+  border-radius: 10px;
+}
+
+.fileUpload__wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.fileUpload__title h3 {
+  padding: 0.5em;
+}
+
+.fileUpload-container {
+  display: flex;
+}
+
+.fileUpload__label {
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 20px;
+  width: 100%;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  /* border: 1px solid #ccc; */
+  cursor: pointer;
+}
+
+.fileUpload__input {
+  display: none;
+}
+
+.fileUpload__label button {
+  border: none;
+  background-color: #2563eb;
+  color: #fff;
+  padding: 0.5em;
+  border-radius: 10px;
+}
+
+/* .fileUpload__uploadarea {
+  border: 2px dashed var(--OUTLINES-DIM-GREY);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.fileUpload__progressarea {
+  display: flex;
+  justify-content: space-between;
+  padding: 1em;
+  background-color: var(--BG-GREY-1);
+  border-radius: 10px;
+} */
+
+.fileUpload__filename {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.fileUpload__buttons {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.fileUpload__buttons button {
+  border-radius: 10px;
+  border: none;
+  padding: 0.4em;
+  color: #fff;
+}
+
+.fileUpload__cancelbtn {
+  background-color: #a3a3a3;
+}
+
+.fileUpload__importbtn {
+  background-color: #2563eb;
+}
+
+.fileUpload__importbtn:is(:focus, :hover) {
+  background-color: #3b82f6;
+}
+
+.fileUpload__cancelbtn:is(:focus, :hover) {
+  background-color: #d4d4d4;
+}
+
+.fileUpload__docvault {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.docvault__list {
+  margin: 0;
+  padding: 1em;
+}
+
+.docvault__items {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+}
