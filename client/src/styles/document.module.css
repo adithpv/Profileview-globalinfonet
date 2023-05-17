@@ -116,10 +116,24 @@
 .docvault__list {
   margin: 0;
   padding: 1em;
+  min-width: 400px;
+  max-width: 600px;
 }
 
 .docvault__items {
   display: flex;
   gap: 1rem;
-  justify-content: space-between;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.docvault__items-btns {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.docvault__items-btns button {
+  border: none;
+  padding: 1em;
+  border-radius: 10px;
 }

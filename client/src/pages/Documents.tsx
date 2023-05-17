@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 
+import qs from "qs";
 import { AiOutlineFolderOpen, AiOutlineUpload } from "react-icons/ai";
-import { RxCross2 } from "react-icons/rx";
-import { HiDownload, HiOutlineTrash } from "react-icons/hi";
+import { HiDownload } from "react-icons/hi";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 
+import { handleDocumentDownload } from "../utility/helperFns";
 import style from "../styles/document.module.css";
 
 const Documents = () => {
@@ -76,13 +77,17 @@ const Documents = () => {
                   <div className={style["docvault__filename"]}>
                     <AiOutlineFolderOpen /> {file.Name}
                   </div>
-
+                  <div>
+                    <p>Date created: {file.TimeLastModified.slice(0, 10)}</p>
+                  </div>
                   <div className={style["docvault__items-btns"]}>
-                    <button className={style["downloadBtn"]}>
+                    <button
+                      className={style["downloadBtn"]}
+                      onClick={() =>
+                        handleDocumentDownload(file.ServerRelativeUrl)
+                      }
+                    >
                       <HiDownload />
-                    </button>
-                    <button className="deleteBtn">
-                      <HiOutlineTrash />
                     </button>
                   </div>
                 </li>

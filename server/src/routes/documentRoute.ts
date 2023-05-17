@@ -1,6 +1,7 @@
 import fs from "fs";
 import { sp } from "@pnp/sp-commonjs";
 import express, { Request, Response } from "express";
+const getContentType = require("../utility/getContentType");
 
 const app = express.Router();
 const multer = require("multer");
@@ -16,6 +17,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
+//TO SEND DOCUMENT TO FOLDER
 app.post("/:id", upload.single("filename"), async (req: any, res: Response) => {
   console.log("first");
   const { id } = req.params;
@@ -34,6 +36,7 @@ app.post("/:id", upload.single("filename"), async (req: any, res: Response) => {
   }
 });
 
+//TO GET SINGLE USER FILE
 app.get("/:id", async (req: Request, res: Response) => {
   const { id } = req.params;
   try {
@@ -47,6 +50,7 @@ app.get("/:id", async (req: Request, res: Response) => {
   }
 });
 
+//IMAGE UPLOAD
 app.post("/image/upload/:id", upload.single("image"), async (req: any, res) => {
   try {
     const { id } = req.params;
@@ -64,6 +68,20 @@ app.post("/image/upload/:id", upload.single("image"), async (req: any, res) => {
   } catch (error) {
     console.log(error);
   }
+});
+
+//DOCUMENT DOWNLOAD
+app.get("/download", async (req, res) => {
+  const serverRelativePath = req.query.serverRelativePath as string;
+  const file = sp.web.getFileByServerRelativePath(serverRelativePath);
+  const buffer: ArrayBuffer = await file.getBuffer();
+
+  const fileName = serverRelativePath.split("/").pop() || "";
+  const contentType = getContentType(fileName);
+
+  res.setHeader("Content-disposition", `attachment; filename=${fileName}`);
+  res.setHeader("Content-type", contentType);
+  res.status(200).send(Buffer.from(buffer));
 });
 
 module.exports = app;
