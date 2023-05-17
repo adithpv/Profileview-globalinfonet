@@ -9,6 +9,8 @@ import { Profile } from "../types/types";
 import profImg from "../assets/potrait2.jpg";
 import AddUserUpdate from "../components/AddUserUpdate";
 import { loadingSpinnerCss } from "../utility/customCss";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import style from "../styles/userDetails.module.css";
 
 const UserDetails = () => {
@@ -60,10 +62,25 @@ const UserDetails = () => {
     setDeleteModalIsOpen(false);
   };
 
-  const handleDeleteConfirm = () => {
+  //DELETE USER MODAL AND SETTING UP TOAST NOTIFICATION
+  const handleDeleteConfirm = async () => {
     handleDeleteModalClose();
-    deleteUser(id);
-    navigate("/");
+    try {
+      toast.promise(deleteUser(id), {
+        pending: "Deleting user...",
+        success: "User deleted successfully!",
+        error: "Error deleting user!",
+      });
+      await new Promise<void>((resolve) => {
+        setTimeout(() => {
+          resolve();
+          navigate("/");
+        }, 4000);
+      });
+      
+    } catch (error) {
+      toast.error("Error deleting user!");
+    }
   };
 
   if (isEditing) {
@@ -76,6 +93,7 @@ const UserDetails = () => {
 
   return (
     <article className={style["userDetails__container"]}>
+      <ToastContainer />
       <section className={style["userDetails__section-1"]}>
         <div className={style["section-1__profile"]}>
           <img

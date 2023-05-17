@@ -1,4 +1,4 @@
-import React, { useContext, ChangeEvent } from "react";
+import React, { useContext, ChangeEvent, useEffect } from "react";
 
 import { MdOutlineNumbers } from "react-icons/md";
 
@@ -18,6 +18,9 @@ const Home = () => {
     );
     setSearch(searchItems);
   };
+
+
+
   return (
     <section className="container">
       <div className={style.hero}>

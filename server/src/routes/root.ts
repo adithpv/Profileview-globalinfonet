@@ -94,7 +94,7 @@ app.patch("/update/:id", async (req: Request, res: Response) => {
   }
 });
 
-//DELETE USERS
+//DELETE USER
 app.delete("/:id", async (req: Request, res: Response) => {
   const { id } = req.params;
   try {
