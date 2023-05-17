@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 
-import qs from "qs";
 import { AiOutlineFolderOpen, AiOutlineUpload } from "react-icons/ai";
 import { HiDownload } from "react-icons/hi";
 import axios from "axios";
@@ -71,8 +70,8 @@ const Documents = () => {
       <div className={style["fileUpload__docvault"]}>
         <div className={style["docvault__wrapper"]}>
           <ul className={style["docvault__list"]}>
-            {fetchDocument?.map((file: any) => (
-              <>
+            {fetchDocument?.map((file: any, index: any) => (
+              <React.Fragment key={index}>
                 <li className={style["docvault__items"]}>
                   <div className={style["docvault__filename"]}>
                     <AiOutlineFolderOpen /> {file.Name}
@@ -92,7 +91,7 @@ const Documents = () => {
                   </div>
                 </li>
                 <hr />
-              </>
+              </React.Fragment>
             ))}
           </ul>
         </div>

@@ -73,22 +73,16 @@ app.post("/adduser", async (req: Request, res: Response) => {
 //UPDATE USER
 app.patch("/update/:id", async (req: Request, res: Response) => {
   const { id } = req.params;
-  const userData = req.body.user;
+  const { user: userData } = req.body;
 
   try {
     console.log("Updating user with ID:", id);
     console.log("New user data:", req.body);
-    const list = sp.web.lists.getByTitle("userProfile");
-    await list.items.getById(+id).update(userData);
-    //  if (image !== "") {
-    //   let document = await sp.web
-    //     .getFolderByServerRelativePath(`documentsLibrary/${id}`)
-    //     .files.addUsingPath(fileNamePath, image, { Overwrite: true });
-    //   await list.items.getById(+id).update({
-    //     imageUrl: document.data.ServerRelativeUrl,
-    //   });
-    // }
-    res.send("User Updated Succesfully");
+
+    const userProfileList = sp.web.lists.getByTitle("userProfile");
+    await userProfileList.items.getById(+id).update(userData);
+
+    res.send("User Updated Successfully");
   } catch (err) {
     res.send(err);
   }
@@ -97,9 +91,18 @@ app.patch("/update/:id", async (req: Request, res: Response) => {
 //DELETE USER
 app.delete("/:id", async (req: Request, res: Response) => {
   const { id } = req.params;
+
   try {
-    const list = sp.web.lists.getByTitle("userProfile");
-    await list.items.getById(+id).delete();
+    const userProfileList = sp.web.lists.getByTitle("userProfile");
+    const userVaultList = sp.web.lists.getByTitle("userVault");
+
+    const deleteItemPromise = userProfileList.items.getById(+id).delete();
+    const deleteFolderPromise = userVaultList.rootFolder.folders
+      .getByName(id)
+      .delete();
+
+    await Promise.all([deleteItemPromise, deleteFolderPromise]);
+
     res.send("User deleted successfully");
   } catch (err) {
     res.send(err);
